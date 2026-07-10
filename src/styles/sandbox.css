@@ -214,10 +214,21 @@
   gap: 0.5rem;
 }
 
-.stat-card.border-violet { border-left: 4px solid var(--color-violet); }
-.stat-card.border-mint { border-left: 4px solid var(--color-mint); }
-.stat-card.border-orange { border-left: 4px solid var(--color-orange); }
-.stat-card.border-blue { border-left: 4px solid var(--color-blue); }
+.stat-card.border-violet {
+  border-left: 4px solid var(--color-violet);
+}
+
+.stat-card.border-mint {
+  border-left: 4px solid var(--color-mint);
+}
+
+.stat-card.border-orange {
+  border-left: 4px solid var(--color-orange);
+}
+
+.stat-card.border-blue {
+  border-left: 4px solid var(--color-blue);
+}
 
 .stat-icon-row {
   display: flex;
@@ -299,7 +310,7 @@
 }
 
 .turns-info strong {
-  color: var(--color-mint-light);
+  color: var(--color-mint);
 }
 
 .turns-hint {
@@ -707,7 +718,7 @@
 
 .result-banner.success {
   background: var(--color-mint-glow);
-  color: var(--color-mint-light);
+  color: var(--color-mint);
   border: 1px solid rgba(16, 185, 129, 0.3);
   box-shadow: var(--shadow-neon-mint);
 }
@@ -799,7 +810,7 @@
 
 .allocation-status-banner.success {
   background: var(--color-mint-glow);
-  color: var(--color-mint-light);
+  color: var(--color-mint);
   border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
@@ -882,7 +893,7 @@
 }
 
 .payout-total .text-glow {
-  color: var(--color-mint-light);
+  color: var(--color-mint);
   text-shadow: 0 0 5px rgba(16, 185, 129, 0.3);
 }
 
@@ -1023,12 +1034,20 @@
   .dashboard-panels-grid {
     grid-template-columns: 1fr;
   }
-  .setup-container, .voting-container, .rat-container, .completed-screen-container {
+
+  .setup-container,
+  .voting-container,
+  .rat-container,
+  .completed-screen-container {
     padding: 2rem 1.5rem;
   }
-  .type-selector-grid, .stances-grid, .rat-grid-layout {
+
+  .type-selector-grid,
+  .stances-grid,
+  .rat-grid-layout {
     grid-template-columns: 1fr;
   }
+
   .final-stats-grid {
     grid-template-columns: 1fr;
   }

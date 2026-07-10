@@ -10,7 +10,7 @@
 /* Hero Section */
 .hero-section {
   padding: 6rem 0 4rem 0;
-  background: radial-gradient(circle at 50% -20%, rgba(139, 92, 246, 0.15), transparent 70%);
+  background: radial-gradient(circle at 50% -20%, rgba(181, 156, 107, 0.15), transparent 70%);
 }
 
 .hero-content {
@@ -79,7 +79,7 @@
 
 .feature-icon-wrapper.color-mint {
   background: var(--color-mint-glow);
-  color: var(--color-mint-light);
+  color: var(--color-mint);
   border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
@@ -116,6 +116,99 @@
   gap: 2rem;
 }
 
+.input-with-symbol {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  padding: 0.25rem 0.5rem;
+  width: 160px;
+  transition: all 0.2s ease;
+}
+
+.input-with-symbol:focus-within {
+  border-color: var(--color-blue);
+  box-shadow: 0 0 0 2px rgba(197, 168, 128, 0.2);
+}
+
+.currency-symbol {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-right: 0.25rem;
+}
+
+.text-input-calc {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-family);
+  font-size: 1rem !important;
+  font-weight: 700;
+  width: 100%;
+  text-align: right;
+  outline: none;
+}
+
+/* Remove spin arrows in Chrome/Safari/Firefox */
+.text-input-calc::-webkit-outer-spin-button,
+.text-input-calc::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.text-input-calc[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.advanced-toggle-row {
+  margin-top: -0.5rem;
+}
+
+.advanced-toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-blue-light);
+  font-family: var(--font-family);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.advanced-toggle-btn:hover {
+  color: #fff;
+}
+
+.advanced-inputs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  background: rgba(44, 0, 7, 0.4);
+  border: 1px dashed var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-top: -0.5rem;
+}
+
+.form-label-sm {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.wide-input {
+  width: 100% !important;
+}
+
 .slider-label-row {
   display: flex;
   justify-content: space-between;
@@ -143,7 +236,7 @@
   width: 100%;
   height: 6px;
   border-radius: var(--radius-full);
-  background: var(--bg-tertiary);
+  background: #D1D5DB;
   outline: none;
 }
 
@@ -173,13 +266,30 @@
 
 /* Calculator Output */
 .calculator-outputs {
-  background: rgba(11, 15, 25, 0.6);
+  background: rgba(44, 0, 7, 0.85);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-md);
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  color: #F2E5C5;
+}
+
+.calculator-outputs h3 {
+  color: #F2E5C5;
+}
+
+.calculator-outputs .result-name {
+  color: rgba(242, 229, 197, 0.8);
+}
+
+.calculator-outputs .result-value.text-violet {
+  color: var(--color-blue-light);
+}
+
+.calculator-outputs .result-total .result-name {
+  color: #F2E5C5;
 }
 
 .calc-result-header {
@@ -189,7 +299,7 @@
 }
 
 .calc-icon {
-  color: var(--color-mint-light);
+  color: var(--color-mint);
 }
 
 .result-breakdowns {
@@ -218,7 +328,7 @@
 }
 
 .result-value.text-mint {
-  color: var(--color-mint-light);
+  color: var(--color-mint);
 }
 
 .result-divider {
@@ -237,9 +347,27 @@
 }
 
 .result-total .result-value.text-glow {
-  color: var(--color-mint-light);
-  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  color: var(--color-mint);
+  text-shadow: 0 0 10px rgba(143, 157, 139, 0.5);
   font-size: 1.5rem;
+}
+
+/* Contrast overrides for dark calculator outputs card */
+.calculator-outputs .result-name {
+  color: var(--bg-primary);
+}
+
+.calculator-outputs .result-value.text-violet {
+  color: #FDA4AF;
+}
+
+.calculator-outputs .result-value.text-mint {
+  color: #86EFAC;
+}
+
+.calculator-outputs .result-total .result-value.text-glow {
+  color: #4ADE80;
+  text-shadow: 0 0 12px rgba(74, 222, 128, 0.5);
 }
 
 .calc-explanation {
@@ -310,20 +438,74 @@
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  background: linear-gradient(135deg, rgba(19, 27, 46, 0.8), rgba(27, 38, 65, 0.8));
+  background: linear-gradient(135deg, rgba(85, 11, 24, 0.8), rgba(44, 0, 7, 0.8));
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: var(--shadow-neon-mint);
 }
 
 .cta-inner h2 {
   font-size: 2rem;
+  color: #F2E5C5;
 }
 
 .cta-inner p {
   max-width: 600px;
   font-size: 1.05rem;
   margin-bottom: 1rem;
+  color: rgba(242, 229, 197, 0.8);
 }
+
+/* Formula Step Box */
+.formula-step-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(242, 229, 197, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.formula-step-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(242, 229, 197, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.formula-math-row {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #E2C8A4;
+  padding: 0.25rem 0;
+  border-bottom: 1px dashed rgba(242, 229, 197, 0.08);
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.result-row.no-padding {
+  padding: 0.25rem 0 0 0;
+}
+
+.result-name-sm {
+  font-size: 0.85rem;
+  color: rgba(242, 229, 197, 0.85);
+}
+
+.result-value-sm {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.total-step-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(242, 229, 197, 0.15);
+}
+
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
 
 /* Responsiveness overrides */
 @media (max-width: 900px) {
@@ -332,6 +514,7 @@
     padding: 2rem;
     gap: 2rem;
   }
+
   .hero-title {
     font-size: 2.75rem;
   }
@@ -341,9 +524,11 @@
   .hero-title {
     font-size: 2.25rem;
   }
+
   .hero-section {
     padding: 4rem 0 2rem 0;
   }
+
   .cta-inner {
     padding: 2.5rem 1.5rem;
   }

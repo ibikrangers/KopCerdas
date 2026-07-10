@@ -5,6 +5,7 @@ import LearnSection from './components/LearnSection';
 import SandboxSimulator from './components/SandboxSimulator';
 import QuizSection from './components/QuizSection';
 import { GraduationCap } from 'lucide-react';
+import kopcerdasLogo from './assets/KOPCERDAS.png';
 
 function App() {
   const [activeTab, setActiveTab] = useState('landing');
@@ -49,9 +50,7 @@ function App() {
         <div className="container footer-content">
           <div className="footer-info">
             <div className="footer-logo">
-              <div className="logo-icon-bg mini">
-                <GraduationCap className="logo-icon" size={16} />
-              </div>
+              <img src={kopcerdasLogo} alt="KopCerdas" className="logo-img-mini" />
               <span>Kop<span className="logo-text-accent">Cerdas</span></span>
             </div>
             <p>Gotong Royong Modern untuk Generasi Penerus Perekonomian Bangsa.</p>

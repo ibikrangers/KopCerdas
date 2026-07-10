@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { GraduationCap, Menu, X, BookOpen, Gamepad2, Award, Sparkles } from 'lucide-react';
+import kopcerdasLogo from '../assets/KOPCERDAS.png';
 
 export default function Navbar({ activeTab, setActiveTab }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,9 +24,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
       <div className="container navbar-content">
         {/* Logo */}
         <div className="logo-section" onClick={() => handleNavClick('landing')} id="nav-logo">
-          <div className="logo-icon-bg">
-            <GraduationCap className="logo-icon" size={24} />
-          </div>
+          <img src={kopcerdasLogo} alt="KopCerdas" className="logo-img" />
           <span className="logo-text">
             Kop<span className="logo-text-accent">Cerdas</span>
           </span>

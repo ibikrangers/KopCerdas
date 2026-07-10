@@ -127,7 +127,7 @@ export default function SandboxVoting({ members, coopType, onCompleteVote }) {
               </button>
               <button 
                 id="vote-no-btn"
-                className={`btn ${userVote === 'tidak' ? 'btn-primary' : 'btn-outline'}`}
+                className={`btn ${userVote === 'tidak' ? 'btn-danger' : 'btn-outline'}`}
                 onClick={() => setUserVote('tidak')}
               >
                 <X size={18} />

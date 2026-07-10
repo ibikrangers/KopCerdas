@@ -1,54 +1,54 @@
 /* Theme configuration for KopCerdas */
 :root {
   /* Colors */
-  --bg-primary: #0b0f19;
-  --bg-secondary: #131b2e;
-  --bg-tertiary: #1b2641;
-  --bg-glass: rgba(19, 27, 46, 0.7);
-  --border-glass: rgba(255, 255, 255, 0.08);
-  --border-glass-hover: rgba(255, 255, 255, 0.16);
+  --bg-primary: #F2E5C5;      /* Warm cream/beige background */
+  --bg-secondary: #EADBB5;    /* Slightly darker cream/beige for footers/panels */
+  --bg-tertiary: #FDF7EA;     /* Light off-white cream for cards */
+  --bg-glass: rgba(253, 247, 234, 0.75);
+  --border-glass: rgba(58, 0, 12, 0.12);
+  --border-glass-hover: rgba(58, 0, 12, 0.24);
   
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-primary: #3A000C;    /* Deep dark burgundy/maroon */
+  --text-secondary: #550B18;  /* Slightly lighter dark burgundy */
+  --text-muted: rgba(58, 0, 12, 0.6);
   
-  /* Brand Colors (Vibrant Neo-Theme) */
-  --color-mint: #10b981;
-  --color-mint-light: #34d399;
-  --color-mint-glow: rgba(16, 185, 129, 0.2);
+  --color-mint: #2B5E3F;       /* Rich Pine Green for high contrast and premium feel */
+  --color-mint-light: white;
+  --color-mint-glow: rgba(43, 94, 63, 0.12);
   
-  --color-violet: #8b5cf6;
-  --color-violet-light: #a78bfa;
-  --color-violet-glow: rgba(139, 92, 246, 0.2);
+  --color-violet: #75162E;     /* Crimson Red */
+  --color-violet-light: #550B18;
+  --color-violet-glow: rgba(117, 22, 46, 0.15);
   
-  --color-orange: #f97316;
-  --color-orange-light: #fb923c;
-  --color-orange-glow: rgba(249, 115, 22, 0.2);
+  --color-orange: #9E5246;     /* Terracotta */
+  --color-orange-light: #733127;
+  --color-orange-glow: rgba(158, 82, 70, 0.15);
   
-  --color-blue: #0ea5e9;
-  --color-blue-light: #38bdf8;
-  --color-blue-glow: rgba(14, 165, 233, 0.2);
+  --color-blue: #A38C6D;       /* Sand Gold */
+  --color-blue-light: #7E694D;
+  --color-blue-glow: rgba(163, 140, 109, 0.15);
   
-  --color-pink: #ec4899;
-  --color-pink-light: #f472b6;
-  --color-pink-glow: rgba(236, 72, 153, 0.2);
+  --color-pink: #A36871;       /* Warm Rose */
+  --color-pink-light: #7D454E;
+  --color-pink-glow: rgba(163, 104, 113, 0.15);
 
-  --color-yellow: #eab308;
-  --color-yellow-light: #fde047;
-  --color-yellow-glow: rgba(234, 179, 8, 0.2);
+  --color-yellow: #B59C6B;     /* Pale gold/yellow */
+  --color-yellow-light: #3A000C;
+  --color-yellow-glow: rgba(181, 156, 107, 0.15);
 
-  --color-danger: #ef4444;
+  --color-danger: #A32943;     /* Vibrant red */
   
   /* Fonts */
-  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-family: 'Onest', system-ui, -apple-system, sans-serif;
+  --font-display: 'Onest', system-ui, -apple-system, sans-serif;
   
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
-  --shadow-neon-mint: 0 0 15px rgba(16, 185, 129, 0.4);
-  --shadow-neon-violet: 0 0 15px rgba(139, 92, 246, 0.4);
-  --shadow-neon-orange: 0 0 15px rgba(249, 115, 22, 0.4);
+  /* Shadows (Softer dark-burgundy-tinted shadows for light background) */
+  --shadow-sm: 0 1px 2px 0 rgba(58, 0, 12, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(58, 0, 12, 0.08), 0 2px 4px -2px rgba(58, 0, 12, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(58, 0, 12, 0.12), 0 4px 6px -4px rgba(58, 0, 12, 0.12);
+  --shadow-neon-mint: 0 0 15px rgba(94, 111, 89, 0.25);
+  --shadow-neon-violet: 0 0 15px rgba(117, 22, 46, 0.25);
+  --shadow-neon-orange: 0 0 15px rgba(158, 82, 70, 0.25);
   
   /* Border Radius */
   --radius-sm: 6px;
@@ -106,7 +106,7 @@
 
 .glass-hover:hover {
   border-color: var(--border-glass-hover);
-  background: rgba(19, 27, 46, 0.8);
+  background: var(--bg-tertiary);
   transform: translateY(-2px);
-  box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-lg);
 }

@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { ArrowRight, Gamepad2, BookOpen, Users, TrendingUp, Heart, Calculator, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Award, BookOpen, Users, TrendingUp, Heart, Calculator, ShieldCheck } from 'lucide-react';
 
 export default function LandingPage({ setActiveTab }) {
   // Mini interactive calculator state
   const [deposit, setDeposit] = useState(500000); // Simpanan anggota (Rp)
   const [purchase, setPurchase] = useState(1000000); // Total belanja anggota (Rp)
-  const [totalCoopDeposit, setTotalCoopDeposit] = useState(5000000); // Total simpanan seluruh koperasi (Rp)
-  const [totalCoopPurchase, setTotalCoopPurchase] = useState(10000000); // Total belanja seluruh koperasi (Rp)
-  
-  // Distributable SHU (Sisa Hasil Usaha)
+  // Constants for SHU calculation
+  const totalCoopDeposit = 5000000; // Total simpanan seluruh koperasi (Rp)
+  const totalCoopPurchase = 10000000; // Total belanja seluruh koperasi (Rp)
   const shuJasaModalTotal = 2000000;  // Porsi SHU untuk Jasa Modal
   const shuJasaAnggotaTotal = 3000000; // Porsi SHU untuk Jasa Usaha/Transaksi
 
@@ -44,25 +43,25 @@ export default function LandingPage({ setActiveTab }) {
             Kolaborasi Seru, Sukses Bersama di <span className="gradient-text">KopCerdas!</span>
           </h1>
           <p className="hero-subtitle">
-            Bukan sekadar bisnis biasa. Temukan bagaimana Koperasi menyatukan kekuatan bersama (Gotong Royong) untuk membangun ekonomi yang adil dan demokratis lewat Sandbox Game yang seru!
+            Bukan sekadar bisnis biasa. Temukan bagaimana Koperasi menyatukan kekuatan bersama (Gotong Royong) untuk membangun ekonomi yang adil dan demokratis lewat pembelajaran interaktif!
           </p>
           <div className="hero-actions flex-center">
             <button 
-              id="hero-play-sandbox-btn"
-              className="btn btn-mint"
-              onClick={() => setActiveTab('sandbox')}
-            >
-              <Gamepad2 size={20} />
-              <span>Main Sandbox Simulator</span>
-            </button>
-            <button 
               id="hero-learn-btn"
-              className="btn btn-secondary"
+              className="btn btn-primary"
               onClick={() => setActiveTab('learn')}
             >
               <BookOpen size={20} />
               <span>Pelajari Koperasi</span>
               <ArrowRight size={16} />
+            </button>
+            <button 
+              id="hero-quiz-btn"
+              className="btn btn-secondary"
+              onClick={() => setActiveTab('quiz')}
+            >
+              <Award size={20} />
+              <span>Kuis & Ranks</span>
             </button>
           </div>
         </div>
@@ -123,12 +122,23 @@ export default function LandingPage({ setActiveTab }) {
               <div className="form-group">
                 <div className="slider-label-row">
                   <span className="form-label">Simpanan Modal Kamu</span>
-                  <span className="slider-value">{formatRupiah(deposit)}</span>
+                  <div className="input-with-symbol">
+                    <span className="currency-symbol">Rp</span>
+                    <input 
+                      type="number"
+                      className="text-input-calc"
+                      value={deposit === 0 ? '' : deposit}
+                      onChange={(e) => setDeposit(Math.min(5000000, Math.max(0, Number(e.target.value))))}
+                      min="0"
+                      max="5000000"
+                      id="calc-deposit-input"
+                    />
+                  </div>
                 </div>
                 <input 
                   type="range" 
-                  min="50000" 
-                  max="1000000" 
+                  min="0" 
+                  max="5000000" 
                   step="50000"
                   value={deposit} 
                   onChange={(e) => setDeposit(Number(e.target.value))}
@@ -141,12 +151,23 @@ export default function LandingPage({ setActiveTab }) {
               <div className="form-group">
                 <div className="slider-label-row">
                   <span className="form-label">Total Belanja Kamu di Koperasi</span>
-                  <span className="slider-value">{formatRupiah(purchase)}</span>
+                  <div className="input-with-symbol">
+                    <span className="currency-symbol">Rp</span>
+                    <input 
+                      type="number"
+                      className="text-input-calc"
+                      value={purchase === 0 ? '' : purchase}
+                      onChange={(e) => setPurchase(Math.min(10000000, Math.max(0, Number(e.target.value))))}
+                      min="0"
+                      max="10000000"
+                      id="calc-purchase-input"
+                    />
+                  </div>
                 </div>
                 <input 
                   type="range" 
-                  min="100000" 
-                  max="3000000" 
+                  min="0" 
+                  max="10000000" 
                   step="100000"
                   value={purchase} 
                   onChange={(e) => setPurchase(Number(e.target.value))}
@@ -165,11 +186,11 @@ export default function LandingPage({ setActiveTab }) {
 
               <div className="result-breakdowns">
                 <div className="result-row">
-                  <span className="result-name">Jasa Modal (Kepemilikan Modal)</span>
+                  <span className="result-name">Jasa Modal (Simpanan)</span>
                   <span className="result-value text-violet">{formatRupiah(jasaModal)}</span>
                 </div>
                 <div className="result-row">
-                  <span className="result-name">Jasa Anggota (Keaktifan Belanja)</span>
+                  <span className="result-name">Jasa Anggota (Belanja)</span>
                   <span className="result-value text-mint">{formatRupiah(jasaUsaha)}</span>
                 </div>
                 <div className="result-divider"></div>
@@ -181,7 +202,7 @@ export default function LandingPage({ setActiveTab }) {
 
               <div className="calc-explanation">
                 <p>
-                  💡 <strong>Penjelasan:</strong> Meskipun simpanan modalmu kecil, jika kamu aktif bertransaksi (belanja), kamu tetap bisa mendapatkan SHU yang besar melalui <strong>Jasa Anggota</strong>. Inilah keadilan koperasi!
+                  💡 <strong>Info:</strong> SHU (Sisa Hasil Usaha) dibagikan secara adil berdasarkan persentase simpanan modalmu dan keaktifan belanjamu di koperasi.
                 </p>
               </div>
             </div>
@@ -194,7 +215,7 @@ export default function LandingPage({ setActiveTab }) {
         <div className="container">
           <h2 className="section-title">Temui Karakter Koperasi</h2>
           <p className="section-subtitle">
-            Karakter-karakter keren ini akan menemanimu mengelola koperasi di Sandbox Game!
+            Karakter-karakter keren ini menggambarkan peran penting anggota dan pengurus dalam ekosistem koperasi!
           </p>
 
           <div className="grid-auto">
@@ -217,17 +238,17 @@ export default function LandingPage({ setActiveTab }) {
       {/* CTA Section */}
       <section className="section cta-section text-center" id="landing-cta-banner">
         <div className="container glass cta-inner">
-          <h2>Siap Menjadi Pengurus Koperasi Keren?</h2>
+          <h2>Siap Menguasai Ilmu Koperasi Keren?</h2>
           <p>
-            Masuk ke Koperasi Sandbox Simulator. Rekrut anggotamu, kelola kas koperasi, adakan voting demokratis, dan bagikan SHU di akhir tahun!
+            Pelajari materi edukatif koperasi interaktif, uji pemahamanmu dengan kuis kelulusan, dan raih peringkat teratas di papan skor!
           </p>
           <button 
-            id="cta-start-simulation-btn"
+            id="cta-start-learning-btn"
             className="btn btn-mint btn-lg"
-            onClick={() => setActiveTab('sandbox')}
+            onClick={() => setActiveTab('learn')}
           >
-            <Gamepad2 size={24} />
-            <span>Mulai Simulasi Koperasi</span>
+            <BookOpen size={24} />
+            <span>Mulai Pelajari Materi</span>
           </button>
         </div>
       </section>
