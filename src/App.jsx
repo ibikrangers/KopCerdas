@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Navbar from './components/Navbar';
 import LandingPage from './components/LandingPage';
 import LearnSection from './components/LearnSection';
 import SandboxSimulator from './components/SandboxSimulator';
 import QuizSection from './components/QuizSection';
-import { GraduationCap } from 'lucide-react';
 import kopcerdasLogo from './assets/KOPCERDAS.png';
 
 function App() {
